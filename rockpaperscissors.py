@@ -3,6 +3,7 @@ def rps ():
     random_number = random.randint(1, 3)
     print("Please enter your move")
     print("🪨\n📄\nOR\n✂️")
+    print()
     move = input()
     c = 0
     p = 0
