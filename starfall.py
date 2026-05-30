@@ -1,5 +1,74 @@
+import keyboard, time, sys
+
+def fancy_print(text):
+    for char in text:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(0.02)
+    print()
+
+def fancy_printa(text):
+    for char in text:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(0.02)
+    print("", end="\r")
+
 def game():
-    print("game begins")
+    board = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ]
+    score = 0
+    lives = ["@", "@", "@"]
+    
+    ###START ANIMATION
+    fancy_print("     *      *      *      *      *      *      *      *      *      *      *      *      *      *      *     ")
+    print()
+    fancy_print("  *      *      *      *      *      *      *      *      *      *      *      *      *      *      *      * ")
+    print()
+    fancy_print("     *      *      *      *      *      *      *      *      *      *      *      *      *      *      *     ")
+    print()
+    fancy_print("  *      *      *      *      *      *      *      *      *      *      *      *      *      *      *      * ")
+    print()
+    fancy_print("     *      *      *      *      *      *      *      *      *      *      *      *      *      *      *     ")
+    print()
+    fancy_print("  *      *      *      *      *      *      *      *      *      *      *      *      *      *      *      * ")
+    print()
+    fancy_printa("     *      *      *      *      *      *      *      *      *      *      *      *      *      *      *     ")
+    time.sleep(.5)
+    print("     *      *      *      *      *      *      *      X      *      *      *      *      *      *      *     ", end="\r")
+    time.sleep(.5)
+    print("     *      *      *      *      *      *      *      *      *      *      *      *      *      *      *     ", end="\r")
+    time.sleep(.5)
+    print("     *      *      *      *      *      *      *      X      *      *      *      *      *      *      *     ", end="\r")
+    time.sleep(.5)
+    print("     *      *      *      *      *      *      *      *      *      *      *      *      *      *      *     ", end="\r")
+    time.sleep(.5)
+    print("     *      *      *      *      *      *      *      X      *      *      *      *      *      *      *     ", end="\r")
+    time.sleep(.5)
+    print("     *      *      *      *      *      *      *      *      *      *      *      *      *      *      *     ")
+    time.sleep(.5)
+    print("  *             *             *                       *                        *             *             * ")
+    time.sleep(.5)
+    print("                                                      *                                                      ")
+    time.sleep(.5)
+    print("     *             *                                  *                                  *             *     ")
+    time.sleep(.5)
+    print("                                                      *                                                      ")
+    time.sleep(.5)
+    print("  *                                                   *                                                    * ")
+    time.sleep(.5)
+    print("                                                      *                                                      ")
+    time.sleep(.5)
+    
+    
+    for i in board:
+        print(" ", end="")
+    print("| ", end="")
+    for i in lives:
+        print(i, end=" ")
+    print("| Score: " + str(score)+ " | ", end="")
+    input()
+
+
 
 def starfall ():
     print("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+")
