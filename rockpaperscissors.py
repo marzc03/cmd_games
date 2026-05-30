@@ -2,7 +2,7 @@ import random;
 def rps ():
     random_number = random.randint(1, 3)
     print("Please enter your move")
-    print("🪨 📄 ✂️")
+    print("🪨\n📄\nOR\n✂️")
     move = input()
     c = 0
     p = 0
@@ -43,8 +43,10 @@ def rps ():
         else:
             print("You win!")
             p += 1
+    elif move == "OR" or "or" or "Or":
+        print("mmmm that's not how this works smartalec")
     else:
-        print("Wait...That's not a move")
+        print("Wait...That's not a move. Let's try that again.")
         c, p = rps()
 
     return c, p
