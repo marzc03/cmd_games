@@ -226,4 +226,3 @@ def tic_tac_toe():
         print("what")
         print("I guess that's a no...")
         input()
-tic_tac_toe()

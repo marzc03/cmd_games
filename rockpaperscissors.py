@@ -44,7 +44,7 @@ def rps ():
             print("You win!")
             p += 1
     else:
-        print("That's not a move")
+        print("Wait...That's not a move")
         c, p = rps()
 
     return c, p
