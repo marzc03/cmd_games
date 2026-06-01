@@ -1,4 +1,4 @@
-import keyboard, time, sys, random
+import curses, time, sys, random
 
 def fancy_print(text):
     for char in text:
@@ -57,17 +57,28 @@ def start():
     print()
     print()
 
-def mode(b, loc, lives):
-    LINE_UP = '\033[1A'
+def play(total, board, x, y, lives, score):
     
-    #prints row
-    for i in b:
-        print(i, end="")
+    
+    #Damage
+    if board[x] != " ":
+        lives.remove("@")
+        lives.append("%")
+
+    board[x] = "*"
+    #needs to move up before
+
+    i = 0
+    while i < len(board):
+        print(board[i], end="")
     print("| ", end="")
     for i in lives:
         print(i, end=" ")
-    print()
-    time.sleep(.5)
+    print("| Score: " + str(score), end="\r")
+    #moves up to start of current row
+    y = y - 1
+    total.pop()
+    time.sleep(.25)
 
 def print_screen ():
     y = 0
@@ -170,31 +181,36 @@ def print_screen ():
         print("|")
         y = y + 1
     
+    print("                                                      *                                                      ")
     return total
     
-
+def left(x):
+    x = x -1
+def right(x):
+    x = x + 1
 def game():
-    
     score = 0
     lives = ["@", "@", "@"]
     x = 54
-    y = 0
-    
+    y = 999
+   
     #start animation
     start()
 
     print("                                                  FINISH                                                     ")
     
     total = print_screen() #print course and sort it
-    
-    while lives != ["%", "%", "%"] and y != 1001:
-        mode(total, x, y, lives)
+    userInput = curses.getKey()
+
+    while lives != ["%", "%", "%"] and y != -1:
+        play(total, total[y], x, y, lives, score)
     
     if lives == ["%", "%", "%"]:
         print("Game Over!")
         print("Final Score: " + str(score))
-    elif y == 1001:
+    elif y == -1:
         print("You're a star!")
+  
     #prints row
     #for i in board:
     #    print(" ", end="")
@@ -207,6 +223,9 @@ def game():
 
 
 def starfall ():
+    curses.initscr()
+    curses.curs_set(0)
+    
     print("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+")
     print("-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-")
     print("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+")
@@ -225,5 +244,6 @@ def starfall ():
     print("-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-")
     input()
     game()
+    curses.curs_set(1)
 
 starfall()
