@@ -200,6 +200,7 @@ def game():
     print("                                                  FINISH                                                     ")
     
     total = print_screen() #print course and sort it
+    """
     userInput = curses.getKey()
 
     while lives != ["%", "%", "%"] and y != -1:
@@ -219,12 +220,12 @@ def game():
     #    print(i, end=" ")
     #print("| Score: " + str(score)+ " | ", end="")
     #input()
-
+"""
 
 
 def starfall ():
-    curses.initscr()
-    curses.curs_set(0)
+    #curses.initscr()
+    #curses.curs_set(0)
     
     print("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+")
     print("-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-")
@@ -244,6 +245,7 @@ def starfall ():
     print("-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-")
     input()
     game()
-    curses.curs_set(1)
 
-starfall()
+    #curses.curs_set(1)
+
+#starfall()
