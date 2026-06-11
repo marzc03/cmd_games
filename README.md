@@ -18,3 +18,11 @@
 ## Features
 - The computer semi-randomly picks its move using a random number generator so each round is unique but follows a strategy
 - Actual Tic-Tac-Toe Board
+
+# Starfall
+## How to play
+- Use WASD or the arrow keys to dodge obstacles and return to the sky
+## Features
+- Small animations
+- Randomly generated boards
+- Increasing difficulty
